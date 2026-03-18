@@ -20,6 +20,7 @@ use core::{any::type_name, fmt, str::FromStr};
 
 /// See [module level documentation][crate]
 #[derive(Default, Hash, Copy, Clone, Ord, PartialOrd, Eq, PartialEq)]
+#[cfg_attr(feature = "bitcode", derive(bitcode::Encode, bitcode::Decode))]
 #[repr(transparent)]
 pub struct Secret<T: ?Sized>(T);
 
